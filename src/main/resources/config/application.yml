@@ -1,0 +1,64 @@
+# ===================================================================
+# Spring Boot configuration.
+#
+# This configuration will be overridden by the Spring profile you use,
+# for example application-dev.yml if you use the "dev" profile.
+#
+# More information on profiles: https://www.jhipster.tech/profiles/
+# More information on configuration properties: https://www.jhipster.tech/common-application-properties/
+# ===================================================================
+
+# ===================================================================
+# Standard Spring Boot properties.
+# Full reference is available at:
+# http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+# ===================================================================
+logging:
+  level:
+    ROOT: INFO
+    io.github.jhipster: INFO
+    com.mycompany.myapp: INFO
+    com.datastax.driver.core.Connection: INFO
+    org.springframework.cloud: INFO
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: ['configprops', 'env', 'health', 'info', 'threaddump', 'prometheus']
+  endpoint:
+    health:
+      show-details: when_authorized
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  info:
+    git:
+      mode: full
+  health:
+    mail:
+      enabled: false # When using the MailService, configure an SMTP server and set this to true
+  metrics:
+    enabled: true
+    export:
+      prometheus:
+        enabled: true
+spring:
+  cloud:
+    kubernetes:
+      discovery:
+        discovery-server-url: https://localhost:6445
+  application:
+    name: springUpgradeAnalisys
+
+  messages:
+    basename: i18n/messages
+
+server:
+  port: 8080
+  servlet:
+    context-path: /springupgradeanalisys
+    session:
+      cookie:
+        http-only: true
