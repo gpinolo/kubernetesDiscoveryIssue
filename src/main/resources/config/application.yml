@@ -46,6 +46,10 @@ management:
         enabled: true
 spring:
   cloud:
+#    discovery:
+#     client:
+#        health-indicator:
+#          enabled: false
     kubernetes:
       discovery:
         discovery-server-url: https://localhost:6445
